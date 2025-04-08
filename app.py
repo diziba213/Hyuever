@@ -1,57 +1,77 @@
 import streamlit as st
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from datetime import datetime
 
-# 페이지 설정
+# ------------------ Google Sheets Setup ------------------
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+client = gspread.authorize(creds)
+sheet = client.open("Hyuever_Vote_Results").sheet1
+
+# ------------------ Page Config ------------------
 st.set_page_config(
-    page_title="Hyuever",
+    page_title="CMUxHyuever Feedback",
     page_icon="🍜",
     layout="centered"
 )
 
-# --- Section 1: Welcome ---
-st.image("hyuever_logo.png", width=250)
-st.markdown("## 🍜 Welcome to Hyuever")
-st.write("Delicious Korean street food made by **Hyu**, for **whoever**. Come taste the warmth and spice!")
+# ------------------ Branding ------------------
+st.image("hyuever_logo.png", width=220)
+st.markdown("""
+<h2 style='text-align: center; color: #D7263D;'>Welcome to CMUxHyuever!</h2>
+<p style='text-align: center;'>Delicious Korean street food made by <b>Hyu</b>, for <b>whoever</b>!</p>
+""", unsafe_allow_html=True)
 
-# --- Section 2: Menu ---
-st.image("hyuever_logo.png", width=150)  # 장식용 로고
+# ------------------ Menu Section ------------------
 st.markdown("## 🥢 Our Menu")
 
 st.markdown("### 🍜 Cupbokki - $6.99")
-st.write("- Spicy rice cakes served in a cup.")
-st.write("- Includes **1 Gimmari**, cut into two pieces.")
-st.write("- Want it hotter? Ask for a **free drizzle of Buldak sauce**.")
-
-st.image("hyuever_logo.png", width=150)
+st.write("- Spicy Korean rice cakes served in a cup.")
+st.write("- Includes 1 Gimmari (seaweed roll), cut into two pieces.")
+st.write("- Want it spicier? Ask for a free drizzle of Buldak sauce! 🔥")
 
 st.markdown("### 🍬 Dalgona - $1.99")
 st.write("- Traditional Korean sugar candy.")
-st.write("- Crushed pieces available as samples.")
-
-st.image("hyuever_logo.png", width=150)
+st.write("- Crushed pieces available for sampling.")
 
 st.markdown("### 🎉 Combo Set - $7.99")
-st.write("Includes **Cupbokki + Dalgona**. Save $1!")
+st.write("- Includes Cupbokki + Dalgona — save $1!")
 
-# --- Section 3: Heating Instructions ---
-st.image("hyuever_logo.png", width=150)
+# ------------------ Heating Instructions ------------------
 st.markdown("## ♨️ Heating Instructions")
-st.write("""
-All items are stored at **room temperature**.
-For the best taste, please microwave for **2 minutes and 30 seconds** before eating.
-""")
+st.write("All items are stored at room temperature.\nFor the best taste, please microwave for **2 minutes and 30 seconds** before eating.")
 
-# --- Section 4: Vote for the Next Item ---
-st.image("hyuever_logo.png", width=150)
-st.markdown("## 🗳️ Vote for the Next Item!")
-vote = st.radio(
-    "What should we serve next?",
-    ["Hotteok (호떡)", "Kimbap (김밥)", "Fried Mandu (군만두)"]
-)
-if st.button("Vote"):
-    st.success(f"Thanks for voting for {vote}!")
+# ------------------ Feedback Survey ------------------
+st.markdown("## 📊 Customer Satisfaction Survey")
+st.write("This survey is anonymous and takes just 30 seconds. Your feedback helps us improve!")
 
-# --- Section 5: Instagram Follow ---
-st.image("hyuever_logo.png", width=150)
-st.markdown("## 📱 Follow Us on Instagram")
-st.write("Stay connected with the Hyuever journey!")
-st.write("🔗 Visit us: [@hyuever](https://www.instagram.com/hyuever)")
+# Likert-scale questions
+taste = st.slider("How satisfied were you with the taste of Cupbokki?", 1, 5, 3)
+price = st.slider("How reasonable was the price?", 1, 5, 3)
+overall = st.slider("Overall, how satisfied were you with your experience?", 1, 5, 3)
+
+# Comment section
+comment = st.text_area("Any suggestions or message for Hyu? We'd love to hear from you! 😊")
+
+# Privacy notice
+st.caption("\u2728 This survey is anonymous. No personal data, email, or browser info is collected.")
+
+# Submission control
+if "submitted" not in st.session_state:
+    st.session_state.submitted = False
+
+if not st.session_state.submitted:
+    if st.button("Submit Feedback"):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        sheet.append_row([timestamp, taste, price, overall, comment])
+        st.session_state.submitted = True
+        st.success("Thank you so much for your feedback! 🌟")
+else:
+    st.info("You have already submitted feedback. Thank you again! 😊")
+
+# ------------------ Footer ------------------
+st.markdown("---")
+st.markdown("### 👉 Follow Us")
+st.write("Instagram: [@hyuever](https://www.instagram.com/hyuever)")
+st.caption("Project: CMUxHyuever | Made with ❤️ in Pittsburgh")
