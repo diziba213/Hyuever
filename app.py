@@ -58,7 +58,7 @@ st.markdown("## 🍽️ Our Menu")
 
 st.markdown("""
 <div style='text-align: center;'>
-  <img src='https://raw.githubusercontent.com/diziba213/Hyuever/main/hyuever_logo.png' style='max-width: 100%; height: auto;' width='360'>
+<img src='https://raw.githubusercontent.com/diziba213/Hyuever/main/Set Menu Poster.png' style='max-width: 100%; height: auto;' width='360'>
 </div>
 """, unsafe_allow_html=True)
 
@@ -81,7 +81,7 @@ with st.container():
 with st.container():
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/TTEOKBOKKI_Photo_Menu.png", width=240)
+        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/TTEOKBOKKI_Photo_Menu.png", width=300)
     with col2:
         st.markdown("""
         <div class='card' style='background-color: #fffaf0;'>
@@ -99,7 +99,7 @@ with st.container():
 with st.container():
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/DALGONA_Photo_Menu.png", width=160)
+        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/DALGONA_Photo_Menu.png", width=300)
     with col2:
         st.markdown("""
         <div class='card'>
