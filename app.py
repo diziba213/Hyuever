@@ -81,7 +81,7 @@ with st.container():
 with st.container():
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/cupbokki.png", width=240)
+        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/TTEOKBOKKI_Photo_Menu.png", width=240)
     with col2:
         st.markdown("""
         <div class='card' style='background-color: #fffaf0;'>
@@ -99,7 +99,7 @@ with st.container():
 with st.container():
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/dalgona.png", width=160)
+        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/DALGONA_Photo_Menu.png", width=160)
     with col2:
         st.markdown("""
         <div class='card'>
