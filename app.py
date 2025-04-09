@@ -38,17 +38,39 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("### 🔥 Cupbokki - $6.99")
-st.write("- Spicy Korean rice cakes served in a cup.")
-st.write("- Includes 1 Gimmari (seaweed roll), cut into two pieces.")
-st.write("- Want it spicier? Ask for a free drizzle of Buldak sauce! 🔥")
+with st.container():
+    st.markdown("""
+    <div style='border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 20px; background-color: #fffaf0;'>
+        <h3>🔥 <span style='color:#D7263D;'>Cupbokki - $6.99</span></h3>
+        <ul>
+            <li><b>Spicy</b> Korean rice cakes served in a cup</li>
+            <li>Includes <span style='color:#444'><b>1 Gimmari</b></span> (seaweed roll), cut into two pieces</li>
+            <li>Want it spicier? <span style='color:#D7263D;'>Free Buldak Sauce drizzle!</span> 🔥</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
-st.markdown("### ⭐ Dalgona - $1.99")
-st.write("- Traditional Korean sugar candy.")
-st.write("- Crushed pieces available for sampling.")
+with st.container():
+    st.markdown("""
+    <div style='border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 20px; background-color: #fffdf7;'>
+        <h3>⭐ <span style='color:#D4A017;'>Dalgona - $1.99</span></h3>
+        <ul>
+            <li>Traditional Korean sugar candy</li>
+            <li>Crushed pieces available for sampling</li>
+        </ul>
+        <p style='font-size: 0.9em; color: #aa0000'><b>⚠ Contains sugar. Manufactured in a facility that may process nuts.</b></p>
+    </div>
+    """, unsafe_allow_html=True)
 
-st.markdown("### 🥡 Combo Set - $7.99")
-st.write("- Includes Cupbokki + Dalgona — save $1!")
+with st.container():
+    st.markdown("""
+    <div style='border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 20px; background-color: #f7faff;'>
+        <h3>🥡 <span style='color:#007ACC;'>Combo Set - $7.99</span></h3>
+        <ul>
+            <li>Includes <b>Cupbokki + Dalgona</b> — <span style='color:green;'>Save $1!</span></li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ------------------ Heating Instructions ------------------
 st.markdown("## ♨️ Heating Instructions")
@@ -58,18 +80,16 @@ st.write("All items are stored at room temperature.\nFor the best taste, please 
 st.markdown("## 📝 Customer Satisfaction Survey")
 st.write("This survey is anonymous and takes just 30 seconds. Your feedback helps us improve!")
 
-# Likert-scale questions
-taste = st.slider("How satisfied were you with the taste of Cupbokki?", 1, 5, 3)
-price = st.slider("How reasonable was the price?", 1, 5, 3)
-overall = st.slider("Overall, how satisfied were you with your experience?", 1, 5, 3)
+stars = ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"]
 
-# Comment section
+taste = st.radio("How satisfied were you with the taste of Cupbokki?", stars, index=2)
+price = st.radio("How reasonable was the price?", stars, index=2)
+overall = st.radio("Overall, how satisfied were you with your experience?", stars, index=2)
+
 comment = st.text_area("Any suggestions or message for Hyu? We'd love to hear from you! 😊")
 
-# Privacy notice
 st.caption("✨ This survey is anonymous. No personal data, email, or browser info is collected.")
 
-# Submission control
 if "submitted" not in st.session_state:
     st.session_state.submitted = False
 
