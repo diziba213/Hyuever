@@ -3,7 +3,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 
-# ------------------ Google Sheets via Streamlit secrets ------------------
+# ------------------ Google Sheets Setup ------------------
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds_dict = st.secrets["google_service_account"]
 creds = ServiceAccountCredentials.from_json_keyfile_dict(dict(creds_dict), scope)
@@ -18,14 +18,25 @@ st.set_page_config(
 )
 
 # ------------------ Branding ------------------
-st.image("hyuever_logo.png", width=220)
+st.markdown("""
+<div style='text-align: center;'>
+  <img src='https://raw.githubusercontent.com/diziba213/Hyuever/main/hyuever_logo.png' width='220'>
+</div>
+""", unsafe_allow_html=True)
+
 st.markdown("""
 <h2 style='text-align: center; color: #D7263D;'>Welcome to CMUxHyuever!</h2>
 <p style='text-align: center;'>Delicious Korean street food made by <b>Hyu</b>, for <b>whoever</b>!</p>
 """, unsafe_allow_html=True)
 
 # ------------------ Menu Section ------------------
-st.markdown("## 🥢 Our Menu")
+st.markdown("## 🍲 Our Menu")
+
+st.markdown("""
+<div style='text-align: center;'>
+  <img src='https://raw.githubusercontent.com/diziba213/Hyuever/main/hyuever_logo.png' width='360'>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("### 🍜 Cupbokki - $6.99")
 st.write("- Spicy Korean rice cakes served in a cup.")
@@ -56,7 +67,7 @@ overall = st.slider("Overall, how satisfied were you with your experience?", 1, 
 comment = st.text_area("Any suggestions or message for Hyu? We'd love to hear from you! 😊")
 
 # Privacy notice
-st.caption("\u2728 This survey is anonymous. No personal data, email, or browser info is collected.")
+st.caption("✨ This survey is anonymous. No personal data, email, or browser info is collected.")
 
 # Submission control
 if "submitted" not in st.session_state:
