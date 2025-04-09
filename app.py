@@ -65,12 +65,17 @@ st.markdown("""
 with st.container():
     st.markdown("""
     <div class='card'>
-        <h3 style='color:#007ACC;'>🥡 Set Menu (세트메뉴)</h3><p style='font-size: 1.25rem;'><del>$8.99</del> <span style='color:#D7263D; font-weight:bold;'>$7.99</span></p>
+        <h3 style='color:#007ACC;'>🥡 Set Menu (세트메뉴)
+        <span style='font-size: 1.25rem; margin-left: 10px;'>
+            <del>$8.99</del> <span style='color:#D7263D; font-weight:bold;'>$7.99</span>
+        </span>
+        </h3>
         <ul style='color:#333; font-size: 1.05rem;'>
             <li>Includes <b>TTEOKBOKKI + DALGONA</b> (떡볶이 + 달고나) — <span style='color:green;'>Save $1!</span></li>
         </ul>
     </div>
     """, unsafe_allow_html=True)
+
 
 # ------------------ Tteokbokki Section ------------------
 with st.container():
