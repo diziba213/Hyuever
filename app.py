@@ -46,11 +46,9 @@ div.stButton > button {
     margin: 24px auto;
     background-color: #fffdf7;
 }
-.star-rating {
-    font-size: 2rem;
-    color: #FFD700;
-    text-align: center;
-    letter-spacing: 0.5rem;
+.emoji-radio label {
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -67,42 +65,46 @@ st.markdown("""
 with st.container():
     st.markdown("""
     <div class='card'>
-        <h3 style='color:#007ACC;'>🥡 Combo Set (콤보세트) - <del>$8.99</del> <span style='color:#D7263D;'>$7.99</span></h3>
+        <h3 style='color:#007ACC;'>🥡 Set Menu (세트메뉴)</h3><p style='font-size: 1rem;'><del>$8.99</del> <span style='color:#D7263D; font-weight:bold;'>$7.99</span></p>
         <ul style='color:#333; font-size: 1.05rem;'>
-            <li>Includes <b>Tteokbokki + Dalgona</b> (떡볶이 + 달고나) — <span style='color:green;'>Save $1!</span></li>
+            <li>Includes <b>TTEOKBOKKI + DALGONA</b> (떡볶이 + 달고나) — <span style='color:green;'>Save $1!</span></li>
         </ul>
     </div>
     """, unsafe_allow_html=True)
 
+# ------------------ Tteokbokki Section ------------------
 with st.container():
-    st.markdown("""
-    <div class='card' style='background-color: #fffaf0;'>
-        <h3 style='color:#D7263D;'>🔥 Tteokbokki (떡볶이) - $6.99</h3>
-        <div style='text-align:center;'>
-            <img src='https://raw.githubusercontent.com/diziba213/Hyuever/main/cupbokki.png' style='max-width: 100%; height: auto;' width='240'>
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/cupbokki.png", width=240)
+    with col2:
+        st.markdown("""
+        <div class='card' style='background-color: #fffaf0;'>
+            <h3 style='color:#D7263D;'>🔥 Tteokbokki (떡볶이)</h3><p style='font-size: 1rem; color: #000000'><b>$6.99</b></p>
+            <ul style='color:#333; font-size: 1.05rem;'>
+                <li><b>Spicy</b> Korean rice cakes served in a cup (매콤한 컵 떡볶이)</li>
+                <li>Includes <b>1 Gimmari</b> (김말이, seaweed roll), cut into two pieces</li>
+                <li>Want it spicier? <span style='color:#D7263D; font-weight:bold;'>Free Buldak (불닭) Sauce drizzle!</span> 🔥</li>
+            </ul>
+            <p style='font-size: 0.75rem; color: #000000'><b>Contains wheat, soy, fish, egg, sesame oil, and may contain traces of nuts and shellfish.</b></p>
         </div>
-        <ul style='color:#333; font-size: 1.05rem;'>
-            <li><b>Spicy</b> Korean rice cakes served in a cup (매콤한 컵 떡볶이)</li>
-            <li>Includes <b>1 Gimmari</b> (김말이, seaweed roll), cut into two pieces</li>
-            <li>Want it spicier? <span style='color:#D7263D; font-weight:bold;'>Free Buldak (불닭) Sauce drizzle!</span> 🔥</li>
-        </ul>
-        <p style='font-size: 0.75rem; color: #000000'><b>Contains wheat, soy, fish, egg, sesame oil, and may contain traces of nuts and shellfish.</b></p>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
+# ------------------ Dalgona Section ------------------
 with st.container():
-    st.markdown("""
-    <div class='card'>
-        <h3 style='color:#D4A017;'>⭐ Dalgona (달고나) - $1.99</h3>
-        <div style='text-align:center;'>
-            <img src='https://raw.githubusercontent.com/diziba213/Hyuever/main/dalgona.png' style='max-width: 100%; height: auto;' width='160'>
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/dalgona.png", width=160)
+    with col2:
+        st.markdown("""
+        <div class='card'>
+            <h3 style='color:#D4A017;'>⭐ Dalgona (달고나)</h3><p style='font-size: 1rem; color: #000000'><b>$1.99</b></p>
+            <ul style='color:#333; font-size: 1.05rem;'>
+                <li>Traditional Korean sugar candy featured in <b>Squid Game</b> (오징어 게임 달고나)</li>
+            </ul>
+            <p style='font-size: 0.75rem; color: #000000'>⚠ Contains sugar. Manufactured in a facility that may process nuts.</p>
         </div>
-        <ul style='color:#333; font-size: 1.05rem;'>
-            <li>Traditional Korean sugar candy featured in <b>Squid Game</b> (오징어 게임 달고나)</li>
-        </ul>
-        <p style='font-size: 0.95rem; color: #aa0000'><b>⚠ Contains sugar. Manufactured in a facility that may process nuts.</b></p>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
 # ------------------ Heating Instructions ------------------
 st.markdown("## ♨️ Heating Instructions")
@@ -114,15 +116,11 @@ st.markdown("""
 st.markdown("## 📝 Quick Feedback")
 st.markdown("<p style='font-size: 1.05rem;'>This survey is anonymous and takes just 30 seconds. Your feedback helps us improve!</p>", unsafe_allow_html=True)
 
-st.markdown("#### ⭐ How satisfied were you with...")
+emoji_options = ["😠", "😕", "😐", "🙂", "🤩"]
 
-col1, col2, col3 = st.columns(3)
-with col1:
-    taste = st.radio("Tteokbokki taste", ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"], index=2)
-with col2:
-    price = st.radio("Price fairness", ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"], index=2)
-with col3:
-    overall = st.radio("Overall experience", ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"], index=2)
+taste = st.radio("Taste", emoji_options, index=2, horizontal=True)
+price = st.radio("Price", emoji_options, index=2, horizontal=True)
+overall = st.radio("Overall Experience", emoji_options, index=2, horizontal=True)
 
 comment = st.text_area("Any suggestions or message for Hyu? We'd love to hear from you! 😊")
 
