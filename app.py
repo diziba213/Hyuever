@@ -85,7 +85,7 @@ with st.container():
     with col2:
         st.markdown("""
         <div class='card' style='background-color: #fffaf0;'>
-            <h3 style='color:#D7263D;'>🔥 Tteokbokki (떡볶이)</h3><p style='font-size: 1rem; color: #000000'><b>$6.99</b></p>
+            <h3 style='color:#D7263D;'>🔥 Tteokbokki (떡볶이)</h3><p style='font-size: 1.25rem; color: #000000'><b>$6.99</b></p>
             <ul style='color:#333; font-size: 1.05rem;'>
                 <li><b>Spicy</b> Korean rice cakes served in a cup</li>
                 <li>Includes <b>1 Gimmari</b> (김말이, seaweed roll), cut into two pieces</li>
@@ -103,7 +103,7 @@ with st.container():
     with col2:
         st.markdown("""
         <div class='card'>
-            <h3 style='color:#D4A017;'>⭐ Dalgona (달고나)</h3><p style='font-size: 1rem; color: #000000'><b>$1.99</b></p>
+            <h3 style='color:#D4A017;'>⭐ Dalgona (달고나)</h3><p style='font-size: 1.25rem; color: #000000'><b>$1.99</b></p>
             <ul style='color:#333; font-size: 1.05rem;'>
                 <li>Traditional Korean sugar candy featured in <b>Squid Game</b> (오징어 게임)</li>
             </ul>
@@ -116,6 +116,20 @@ st.markdown("## ♨️ Heating Instructions")
 st.markdown("""
 <p style='font-size: 1.05rem;'>All items are stored at room temperature. For the best taste and to feel the warmth of Korea, <b style='color:#D4A017;'>microwave for 2 minutes and 30 seconds is <u>highly recommended</u></b>.</p>
 """, unsafe_allow_html=True)
+
+with st.container():
+    st.markdown("## 💸 Payment via Zelle")
+
+    st.markdown(\"\"\"\n
+    <p style='font-size: 1.05rem;'>
+        Please send your payment via <b>Zelle</b> to the following account:<br>
+        <span style='color:#D7263D; font-size: 1.1rem;'><b>diziba213@gmail.com</b></span><br><br>
+        After sending, please show the <b>confirmation screen</b> to complete your order ✅
+    </p>
+    \"\"\", unsafe_allow_html=True)
+
+    st.image(\"https://raw.githubusercontent.com/diziba213/Hyuever/main/zelle_example.png\", width=300, caption=\"Example: Zelle Confirmation Screen\")
+
 
 # ------------------ Feedback Survey ------------------
 st.markdown("## 📝 Quick Feedback")
