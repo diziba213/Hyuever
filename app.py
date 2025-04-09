@@ -38,16 +38,16 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("### 🍜 Cupbokki - $6.99")
+st.markdown("### 🔥 Cupbokki - $6.99")
 st.write("- Spicy Korean rice cakes served in a cup.")
 st.write("- Includes 1 Gimmari (seaweed roll), cut into two pieces.")
 st.write("- Want it spicier? Ask for a free drizzle of Buldak sauce! 🔥")
 
-st.markdown("### 🍬 Dalgona - $1.99")
+st.markdown("### ⭐ Dalgona - $1.99")
 st.write("- Traditional Korean sugar candy.")
 st.write("- Crushed pieces available for sampling.")
 
-st.markdown("### 🎉 Combo Set - $7.99")
+st.markdown("### 🥡 Combo Set - $7.99")
 st.write("- Includes Cupbokki + Dalgona — save $1!")
 
 # ------------------ Heating Instructions ------------------
@@ -55,7 +55,7 @@ st.markdown("## ♨️ Heating Instructions")
 st.write("All items are stored at room temperature.\nFor the best taste, please microwave for **2 minutes and 30 seconds** before eating.")
 
 # ------------------ Feedback Survey ------------------
-st.markdown("## 📊 Customer Satisfaction Survey")
+st.markdown("## 📝 Customer Satisfaction Survey")
 st.write("This survey is anonymous and takes just 30 seconds. Your feedback helps us improve!")
 
 # Likert-scale questions
