@@ -40,9 +40,9 @@ st.markdown("""
 
 with st.container():
     st.markdown("""
-    <div style='border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 20px; background-color: #fffaf0;'>
-        <h3>🔥 <span style='color:#D7263D;'>Cupbokki - $6.99</span></h3>
-        <ul>
+    <div style='border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-top: 20px; margin-bottom: 20px; background-color: #fffaf0;'>
+        <h3 style='color:#D7263D;'>🔥 Cupbokki - $6.99</h3>
+        <ul style='color:#333;'>
             <li><b>Spicy</b> Korean rice cakes served in a cup</li>
             <li>Includes <span style='color:#444'><b>1 Gimmari</b></span> (seaweed roll), cut into two pieces</li>
             <li>Want it spicier? <span style='color:#D7263D;'>Free Buldak Sauce drizzle!</span> 🔥</li>
@@ -53,8 +53,8 @@ with st.container():
 with st.container():
     st.markdown("""
     <div style='border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 20px; background-color: #fffdf7;'>
-        <h3>⭐ <span style='color:#D4A017;'>Dalgona - $1.99</span></h3>
-        <ul>
+        <h3 style='color:#D4A017;'>⭐ Dalgona - $1.99</h3>
+        <ul style='color:#333;'>
             <li>Traditional Korean sugar candy</li>
             <li>Crushed pieces available for sampling</li>
         </ul>
@@ -65,8 +65,8 @@ with st.container():
 with st.container():
     st.markdown("""
     <div style='border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 20px; background-color: #f7faff;'>
-        <h3>🥡 <span style='color:#007ACC;'>Combo Set - $7.99</span></h3>
-        <ul>
+        <h3 style='color:#007ACC;'>🥡 Combo Set - $7.99</h3>
+        <ul style='color:#333;'>
             <li>Includes <b>Cupbokki + Dalgona</b> — <span style='color:green;'>Save $1!</span></li>
         </ul>
     </div>
@@ -80,11 +80,11 @@ st.write("All items are stored at room temperature.\nFor the best taste, please 
 st.markdown("## 📝 Customer Satisfaction Survey")
 st.write("This survey is anonymous and takes just 30 seconds. Your feedback helps us improve!")
 
-stars = ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"]
+star_options = ["⭐", "⭐ ⭐", "⭐ ⭐ ⭐", "⭐ ⭐ ⭐ ⭐", "⭐ ⭐ ⭐ ⭐ ⭐"]
 
-taste = st.radio("How satisfied were you with the taste of Cupbokki?", stars, index=2)
-price = st.radio("How reasonable was the price?", stars, index=2)
-overall = st.radio("Overall, how satisfied were you with your experience?", stars, index=2)
+taste = st.select_slider("How satisfied were you with the taste of Cupbokki?", options=star_options, value="⭐ ⭐ ⭐")
+price = st.select_slider("How reasonable was the price?", options=star_options, value="⭐ ⭐ ⭐")
+overall = st.select_slider("Overall, how satisfied were you with your experience?", options=star_options, value="⭐ ⭐ ⭐")
 
 comment = st.text_area("Any suggestions or message for Hyu? We'd love to hear from you! 😊")
 
