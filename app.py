@@ -125,12 +125,17 @@ with st.container():
 
     st.markdown("""
     <p style='font-size: 1.05rem;'>
-        Please scan the QR code below using your bank app to pay via <b>Zelle</b>.<br>
-        After payment, show the <b>confirmation screen</b> to complete your order ✅
+        Please complete your payment <b>in person</b> via <b>Zelle</b>.<br><br>
+        Our staff will provide you with the Zelle ID at the stand.  
+        Once sent, simply <b>show the confirmation screen</b> to confirm your order ✅
     </p>
     """, unsafe_allow_html=True)
 
-    st.image("ZelleQRcode_GyehyuKim.jpg", width=300, caption="Scan to pay via Zelle")
+    st.markdown("""
+    <p style='font-size: 0.9rem; color: gray;'>
+        *For your privacy and safety, we do not display any payment information online.
+    </p>
+    """, unsafe_allow_html=True)
 
 
 # ------------------ Feedback Survey ------------------
