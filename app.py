@@ -117,19 +117,21 @@ st.markdown("""
 <p style='font-size: 1.05rem;'>All items are stored at room temperature. For the best taste and to feel the warmth of Korea, <b style='color:#D4A017;'>microwave for 2 minutes and 30 seconds is <u>highly recommended</u></b>.</p>
 """, unsafe_allow_html=True)
 
+
+
+# ------------------ Payment Instructions ------------------
 with st.container():
     st.markdown("## 💸 Payment via Zelle")
 
-    st.markdown(\"\"\"\n
+    st.markdown("""
     <p style='font-size: 1.05rem;'>
         Please send your payment via <b>Zelle</b> to the following account:<br>
         <span style='color:#D7263D; font-size: 1.1rem;'><b>diziba213@gmail.com</b></span><br><br>
         After sending, please show the <b>confirmation screen</b> to complete your order ✅
     </p>
-    \"\"\", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-    st.image(\"https://raw.githubusercontent.com/diziba213/Hyuever/main/zelle_example.png\", width=300, caption=\"Example: Zelle Confirmation Screen\")
-
+    st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/hyuever_logo.png", width=300, caption="Show this screen after Zelle payment.")
 
 # ------------------ Feedback Survey ------------------
 st.markdown("## 📝 Quick Feedback")
