@@ -125,13 +125,13 @@ with st.container():
 
     st.markdown("""
     <p style='font-size: 1.05rem;'>
-        Please send your payment via <b>Zelle</b> to the following account:<br>
-        <span style='color:#D7263D; font-size: 1.1rem;'><b>diziba213@gmail.com</b></span><br><br>
-        After sending, please show the <b>confirmation screen</b> to complete your order ✅
+        Please scan the QR code below using your bank app to pay via <b>Zelle</b>.<br>
+        After payment, show the <b>confirmation screen</b> to complete your order ✅
     </p>
     """, unsafe_allow_html=True)
 
-    st.image("https://raw.githubusercontent.com/diziba213/Hyuever/main/hyuever_logo.png", width=300, caption="Show this screen after Zelle payment.")
+    st.image("ZelleQRcode_GyehyuKim.jpg", width=300, caption="Scan to pay via Zelle")
+
 
 # ------------------ Feedback Survey ------------------
 st.markdown("## 📝 Quick Feedback")
