@@ -67,7 +67,7 @@ with st.container():
     <div class='card'>
         <h3 style='color:#007ACC;'>🥡 Set Menu (세트메뉴)
         <span style='font-size: 1.25rem; margin-left: 10px;'>
-            <del>$8.99</del> <span style='color:#D7263D; font-weight:bold;'>$7.99</span>
+            <del>$8.99</del> <span style='font-size: 1.25rem; color:#D7263D; font-weight:bold;'>$7.99</span>
         </span>
         </h3>
         <ul style='color:#333; font-size: 1.05rem;'>
@@ -87,7 +87,7 @@ with st.container():
         <div class='card' style='background-color: #fffaf0;'>
             <h3 style='color:#D7263D;'>🔥 Tteokbokki (떡볶이)</h3><p style='font-size: 1rem; color: #000000'><b>$6.99</b></p>
             <ul style='color:#333; font-size: 1.05rem;'>
-                <li><b>Spicy</b> Korean rice cakes served in a cup (매콤한 컵 떡볶이)</li>
+                <li><b>Spicy</b> Korean rice cakes served in a cup</li>
                 <li>Includes <b>1 Gimmari</b> (김말이, seaweed roll), cut into two pieces</li>
                 <li>Want it spicier? <span style='color:#D7263D; font-weight:bold;'>Free Buldak (불닭) Sauce drizzle!</span> 🔥</li>
             </ul>
@@ -105,7 +105,7 @@ with st.container():
         <div class='card'>
             <h3 style='color:#D4A017;'>⭐ Dalgona (달고나)</h3><p style='font-size: 1rem; color: #000000'><b>$1.99</b></p>
             <ul style='color:#333; font-size: 1.05rem;'>
-                <li>Traditional Korean sugar candy featured in <b>Squid Game</b> (오징어 게임 달고나)</li>
+                <li>Traditional Korean sugar candy featured in <b>Squid Game</b> (오징어 게임)</li>
             </ul>
             <p style='font-size: 0.75rem; color: #000000'>⚠ Contains sugar. Manufactured in a facility that may process nuts.</p>
         </div>
