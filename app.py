@@ -46,6 +46,12 @@ div.stButton > button {
     margin: 24px auto;
     background-color: #fffdf7;
 }
+.star-rating {
+    font-size: 2rem;
+    color: #FFD700;
+    text-align: center;
+    letter-spacing: 0.5rem;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -61,7 +67,7 @@ st.markdown("""
 with st.container():
     st.markdown("""
     <div class='card'>
-        <h3 style='color:#007ACC;'>🥡 Combo Set (콤보세트) - $7.99</h3>
+        <h3 style='color:#007ACC;'>🥡 Combo Set (콤보세트) - <del>$8.99</del> <span style='color:#D7263D;'>$7.99</span></h3>
         <ul style='color:#333; font-size: 1.05rem;'>
             <li>Includes <b>Tteokbokki + Dalgona</b> (떡볶이 + 달고나) — <span style='color:green;'>Save $1!</span></li>
         </ul>
@@ -99,20 +105,24 @@ with st.container():
     """, unsafe_allow_html=True)
 
 # ------------------ Heating Instructions ------------------
-st.markdown("## 💡 Heating Instructions")
+st.markdown("## ♨️ Heating Instructions")
 st.markdown("""
-<p style='font-size: 1.05rem;'>All items are stored at room temperature. For the best taste and to feel the warmth of Korea, <b style='color:#D7263D;'>microwave for 2 minutes and 30 seconds is <u>highly recommended</u></b>.</p>
+<p style='font-size: 1.05rem;'>All items are stored at room temperature. For the best taste and to feel the warmth of Korea, <b style='color:#D4A017;'>microwave for 2 minutes and 30 seconds is <u>highly recommended</u></b>.</p>
 """, unsafe_allow_html=True)
 
 # ------------------ Feedback Survey ------------------
 st.markdown("## 📝 Quick Feedback")
 st.markdown("<p style='font-size: 1.05rem;'>This survey is anonymous and takes just 30 seconds. Your feedback helps us improve!</p>", unsafe_allow_html=True)
 
-star_options = ["⭐", "⭐ ⭐", "⭐ ⭐ ⭐", "⭐ ⭐ ⭐ ⭐", "⭐ ⭐ ⭐ ⭐ ⭐"]
+st.markdown("#### ⭐ How satisfied were you with...")
 
-taste = st.select_slider("How satisfied were you with the taste of Tteokbokki?", options=star_options, value="⭐ ⭐ ⭐")
-price = st.select_slider("How reasonable was the price?", options=star_options, value="⭐ ⭐ ⭐")
-overall = st.select_slider("Overall, how satisfied were you with your experience?", options=star_options, value="⭐ ⭐ ⭐")
+col1, col2, col3 = st.columns(3)
+with col1:
+    taste = st.radio("Tteokbokki taste", ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"], index=2)
+with col2:
+    price = st.radio("Price fairness", ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"], index=2)
+with col3:
+    overall = st.radio("Overall experience", ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"], index=2)
 
 comment = st.text_area("Any suggestions or message for Hyu? We'd love to hear from you! 😊")
 
